@@ -1,21 +1,30 @@
 {
   "name": "@lchavezpozo/firefly-plugin-openclaw",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "OpenClaw plugin for Firefly III personal finance management",
-  "main": "index.ts",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests"
+  },
   "keywords": [
     "openclaw",
     "openclaw-plugin",
     "firefly-iii",
     "finance",
     "personal-finance",
-    "budgeting"
+    "budgeting",
+    "self-hosted"
   ],
   "author": "Luis Chavez <lchavezpozo@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lchavezpozo/firefly-plugin-openclaw.git"
+    "url": "git+https://github.com/lchavezpozo/firefly-plugin-openclaw.git"
   },
   "bugs": {
     "url": "https://github.com/lchavezpozo/firefly-plugin-openclaw/issues"
@@ -25,11 +34,17 @@
     "node": ">=18.0.0"
   },
   "files": [
-    "index.ts",
+    "src",
     "openclaw.plugin.json",
     "README.md",
     "LICENSE"
   ],
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
+    "@vitest/coverage-v8": "^1.0.0"
+  },
   "openclaw": {
     "extensions": ["."]
   }

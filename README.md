@@ -1,29 +1,32 @@
 # 🔥 Firefly III Plugin for OpenClaw
 
-A native OpenClaw plugin for [Firefly III](https://www.firefly-iii.org/) - the self-hosted personal finance manager.
+[![npm version](https://img.shields.io/npm/v/@lchavezpozo/firefly-plugin-openclaw.svg)](https://www.npmjs.com/package/@lchavezpozo/firefly-plugin-openclaw)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Features
+A native OpenClaw plugin for [Firefly III](https://www.firefly-iii.org/) — the self-hosted personal finance manager.
 
-- 💰 **Check balances** - View all your asset accounts
-- 📝 **Record transactions** - Log expenses, income, and transfers
-- 📊 **View recent transactions** - See your latest activity
-- 🗑️ **Delete transactions** - Remove incorrect entries
-- 📈 **Monthly summary** - Get spending overview
-- 🏷️ **List categories** - View all your categories
+## ✨ Features
 
-## Installation
+- 💰 **Check balances** — View all your asset accounts
+- 📝 **Record transactions** — Log expenses, income, and transfers
+- 📊 **View recent transactions** — See your latest activity
+- 🗑️ **Delete transactions** — Remove incorrect entries
+- 📈 **Monthly summary** — Get spending overview
+- 🏷️ **List categories** — View all your categories
+
+## 📦 Installation
 
 ```bash
 openclaw plugins install @lchavezpozo/firefly-plugin-openclaw
 ```
 
-Or clone manually:
+Or install manually:
 
 ```bash
 git clone https://github.com/lchavezpozo/firefly-plugin-openclaw.git ~/.openclaw/plugins/firefly-iii
 ```
 
-## Configuration
+## ⚙️ Configuration
 
 ### 1. Get your Firefly III API Token
 
@@ -39,9 +42,6 @@ Add to your `~/.openclaw/openclaw.json`:
 ```json
 {
   "plugins": {
-    "load": {
-      "paths": ["~/.openclaw/plugins/firefly-iii"]
-    },
     "entries": {
       "firefly-iii": {
         "enabled": true,
@@ -64,7 +64,7 @@ Or use a credentials file:
       "firefly-iii": {
         "enabled": true,
         "config": {
-          "credentialsPath": "/path/to/firefly-credentials.json"
+          "credentialsPath": "~/.openclaw/credentials/firefly.json"
         }
       }
     }
@@ -86,16 +86,26 @@ Credentials file format:
 openclaw gateway restart
 ```
 
-## Usage
+## 🚀 Usage
 
 Once configured, the AI will automatically use these tools when you ask about finances:
 
-- "How much money do I have?" → `firefly_accounts`
-- "I spent $50 on groceries" → `firefly_transaction`
-- "Show my recent expenses" → `firefly_recent`
-- "Monthly spending summary" → `firefly_summary`
+| You say | Tool used |
+|---------|-----------|
+| "How much money do I have?" | `firefly_accounts` |
+| "I spent $50 on groceries" | `firefly_transaction` |
+| "Show my recent expenses" | `firefly_recent` |
+| "Monthly spending summary" | `firefly_summary` |
+| "What categories do I have?" | `firefly_categories` |
 
-## Available Tools
+### Supported Languages
+
+The plugin understands natural language in English and Spanish:
+- "cuánto tengo" → `firefly_accounts`
+- "gasté 50 en comida" → `firefly_transaction`
+- "últimos gastos" → `firefly_recent`
+
+## 🛠️ Available Tools
 
 | Tool | Description |
 |------|-------------|
@@ -106,16 +116,58 @@ Once configured, the AI will automatically use these tools when you ask about fi
 | `firefly_summary` | Get current month summary |
 | `firefly_categories` | List all categories |
 
-## Requirements
+## 🏗️ Architecture
+
+```
+src/
+├── index.ts              # Plugin entry point
+├── FireflyClient.ts      # API client class
+├── types.ts              # TypeScript interfaces
+└── tools/
+    ├── accounts.ts       # Balance checking
+    ├── transaction.ts    # Recording transactions
+    ├── recent.ts         # Recent transactions
+    ├── delete.ts         # Delete transactions
+    ├── summary.ts        # Monthly summary
+    └── categories.ts     # List categories
+```
+
+## 🧪 Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Type checking
+npm run typecheck
+```
+
+## 📋 Requirements
 
 - OpenClaw 2026.2.0 or later
 - Firefly III instance with API access
 - Personal Access Token from Firefly III
+- Node.js 18+
 
-## License
+## 📄 License
 
-MIT © Luis Chavez
+MIT © [Luis Chavez](https://github.com/lchavezpozo)
 
-## Contributing
+## 🤝 Contributing
 
-PRs welcome! Feel free to open issues for bugs or feature requests.
+Contributions are welcome! Feel free to:
+- Open issues for bugs or feature requests
+- Submit pull requests
+- Improve documentation
+
+## 🔗 Links
+
+- [Firefly III](https://www.firefly-iii.org/)
+- [OpenClaw](https://openclaw.ai/)
+- [npm Package](https://www.npmjs.com/package/@lchavezpozo/firefly-plugin-openclaw)
