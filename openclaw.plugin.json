@@ -1,0 +1,39 @@
+{
+  "id": "firefly-iii",
+  "name": "Firefly III",
+  "description": "Personal finance management - check balances, record transactions, view spending",
+  "version": "1.0.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "url": {
+        "type": "string",
+        "description": "Firefly III server URL (e.g., http://localhost:8080)"
+      },
+      "token": {
+        "type": "string",
+        "description": "Firefly III Personal Access Token"
+      },
+      "credentialsPath": {
+        "type": "string",
+        "description": "Path to JSON file with url and token (alternative to inline config)"
+      }
+    }
+  },
+  "uiHints": {
+    "token": {
+      "sensitive": true,
+      "label": "API Token",
+      "placeholder": "eyJ0eXAiOiJKV1QiLCJhbGciOi..."
+    },
+    "url": {
+      "label": "Firefly III URL",
+      "placeholder": "http://localhost:8080"
+    },
+    "credentialsPath": {
+      "label": "Credentials File Path",
+      "placeholder": "~/.openclaw/credentials/firefly.json"
+    }
+  }
+}
