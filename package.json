@@ -1,6 +1,6 @@
 {
   "name": "@lchavezpozo/firefly-plugin-openclaw",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OpenClaw plugin for Firefly III personal finance management",
   "main": "index.ts",
   "keywords": [
@@ -29,5 +29,8 @@
     "openclaw.plugin.json",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "openclaw": {
+    "extensions": ["."]
+  }
 }
